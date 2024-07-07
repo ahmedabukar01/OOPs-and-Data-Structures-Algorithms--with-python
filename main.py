@@ -20,6 +20,8 @@
 class Item:
     def __init__(self, name, price, quantity=0):
         # Validate the receiving arguments
+        assert price >= 0, "Price should not less than 1"
+        assert quantity >=0, f"Quantity {quantity} cannot be 0 or negetive numbers"
 
         # assign to self object
         self.name = name
