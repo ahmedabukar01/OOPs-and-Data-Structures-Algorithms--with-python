@@ -51,6 +51,9 @@ class Item:
             return True
         else:
             return False
+    def __repr__(self):
+        # return f"(Items {self.name} {self.price} {self.quantity})"
+        return "hhhhhhhhhhhh"
 
 item1 = Item("laptop", 100, 3)
 item2 = Item("Phone", 50, 5)
@@ -58,8 +61,8 @@ item2 = Item("Phone", 50, 5)
 item1.has_numpy = False
 
 print(item2.calc())
-print(Item.__dict__) # see all atributes at class level
-print(item1.__dict__) # see all atributes at instance level
+# print(Item.__dict__) # see all atributes at class level
+# print(item1.__dict__) # see all atributes at instance level
 
 print(f"old price: {item1.price}")
 item1.discount()
