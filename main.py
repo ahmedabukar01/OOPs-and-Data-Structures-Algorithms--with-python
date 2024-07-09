@@ -52,11 +52,11 @@ class Item:
         else:
             return False
     def __repr__(self):
-        # return f"(Items {self.name} {self.price} {self.quantity})"
-        return "hhhhhhhhhhhh"
+        return f"(Items {self.name} {self.price} {self.quantity})"
 
 item1 = Item("laptop", 100, 3)
 item2 = Item("Phone", 50, 5)
+print("HERE",repr(item2))
 
 item1.has_numpy = False
 
