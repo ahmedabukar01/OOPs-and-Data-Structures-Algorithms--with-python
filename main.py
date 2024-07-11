@@ -24,7 +24,7 @@ from phone import Phone
 
 item1 = Item("laptop", 100, 3)
 item2 = Item("Phone", 50, 5)
-# item1.__name = "new"
+# item1.name = "new"
 print(item1.name)
 item1.has_numpy = False
 

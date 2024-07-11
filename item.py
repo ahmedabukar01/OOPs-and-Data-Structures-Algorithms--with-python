@@ -14,6 +14,9 @@ class Item:
     @property
     def name(self): 
         return self.__name
+    @name.setter
+    def name(self, value):
+        self.__name = value
     def calc(self):
         return self.price * self.quantity
     def discount(self):
@@ -24,7 +27,7 @@ class Item:
         with open("items.csv", "r") as f:
             reader = csv.DictReader(f)
             items = list(reader)
-        for item in items: 
+        for item in items:
             print("item: ",item)
     
     @staticmethod
@@ -38,5 +41,16 @@ class Item:
             return False
     def __repr__(self):
         return f"({self.__class__.__name__} {self.name} {self.price} {self.quantity})"
+    
+    # this is called abstraction. "its a oops principle, it's way to make private methods that are not being used in other places."
+    def __prepare_body(self):
+        pass
+    def __connect(self):
+        pass
+
+    def send_email(self):
+        self.__prepare_body()
+        self.__connect()
+
 
    
