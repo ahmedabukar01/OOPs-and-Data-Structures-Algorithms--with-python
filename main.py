@@ -41,3 +41,6 @@ samsung = Phone('a7', 20,2,1)
 print("HERE",repr(item2))
 print("HERE",repr(samsung))
 print(samsung.calc())
+
+
+#polymorphism is a one single entity that can be used by multiple different objects. example len(name), len(names). if u give a string it will tell the length. each character. if u give an array it will return how many index are there.
