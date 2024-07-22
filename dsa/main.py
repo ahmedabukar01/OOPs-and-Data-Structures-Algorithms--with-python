@@ -1,4 +1,5 @@
 # Linear search
+# O(1) is called linear time
 def linear_search(list, target):
     for i in range(0, len(list)):
         if list[i] == target:
@@ -101,6 +102,55 @@ class Linked_list:
             else:
                 current = current.next_node
         return None
+    
+    def insert(self, data, index):
+        if index == 0: 
+            self.add(data)
+        if index > 0:
+            new = Node(data)
+
+            position = index
+            current = self.head
+        while position > 1:
+            current = current.next_node # check
+            position -= 1
+        
+        prev_node = current
+        next_node = current.next_node
+
+        prev_node.next_node = new
+        new.next_node = next_node
+
+    def remove(self, key):
+        current = self.head
+        prev = None
+        found = False
+
+        while current and not found:
+            if current.data == key and current is self.head:
+                self.head = current.next_node
+                found = True
+            elif current.data == key:
+                found = True
+                prev.next_node = current.next_node
+            else: 
+                prev = current
+                current = current.next_node
+        return current
+
+    # Merging sort
+    def merge_sort():
+
+        """
+        Sorts a list in ascending order. returns a new sorted list
+        Devide: find the midpoint of the list and divide into sublists.
+        Conquer: Recursively sort the sublists created in previous step.
+        Combine: Merge the sorted sublists created in previous step
+        """
+
+        if len(list) <= 1:
+            return list
+        
 
     # display format on the console
     def __repr__(self):
