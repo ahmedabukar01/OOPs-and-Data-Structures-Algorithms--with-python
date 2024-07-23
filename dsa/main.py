@@ -159,7 +159,7 @@ class Linked_list:
 
 # Merging sort
 
-def merge_sort():
+def merge_sort(list):
 
     """
     Sorts a list in ascending order. returns a new sorted list
@@ -178,9 +178,40 @@ def merge_sort():
     return merge(left, right)
 
 def split(list):
-    mid = len(list) // 2
+    mid = len(list)//2
     left = list[:mid]
     right = list[mid:]
     return left, right
-def merge(list):
-    pass
+
+def merge(left, right):
+    l = []
+    i = 0
+    j = 0
+
+    while i < len(left) and j < len(right):
+        if left[i] < right[j]:
+            l.append(left[i])
+            i += 1
+        else: 
+            l.append(right[j])
+            j += 1
+    while i < len(left):
+        l.append(left[i])
+        i += 1
+    while j < len(right):
+        l.append(right[j])
+        j += 1
+    
+    return l
+
+def verify_merge(list):
+    n = len(list)
+    if n == 0 or n == 1:
+        return True
+    
+    return list[0] < list[1] and verify_merge(list[1:])
+
+arr = [33,23,45,3,5,6,77,88,1,32]
+res = merge_sort(arr)
+print("merge: ", res)
+print(verify_merge(res))
