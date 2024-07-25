@@ -137,6 +137,18 @@ class Linked_list:
                 prev = current
                 current = current.next_node
         return current
+    
+    def index_at(self, index):
+        if index == 0:
+            return self.head
+        else:
+            current = self.head
+            position = 0
+
+            while position < index:
+                current = current.next_node
+                position += 1
+            return position
 
     # display format on the console
     def __repr__(self):
@@ -167,6 +179,9 @@ def merge_sort(list):
     Conquer: Recursively sort the sublists created in previous step.
     Combine: Merge the sorted sublists created in previous step
     """
+    """
+    Takes O(n log n) time
+    """
 
     if len(list) <= 1:
         return list
@@ -178,6 +193,9 @@ def merge_sort(list):
     return merge(left, right)
 
 def split(list):
+    """
+    Takes O(log n) time
+    """
     mid = len(list)//2
     left = list[:mid]
     right = list[mid:]
@@ -215,3 +233,53 @@ arr = [33,23,45,3,5,6,77,88,1,32]
 res = merge_sort(arr)
 print("merge: ", res)
 print(verify_merge(res))
+
+# Linked List Merge sort
+
+def linked_list_merge_sort(linked_list):
+    """
+    Sort Linked List in ascending order
+    - Recursively devide the linked list into sublists containing a single mode
+    - Repeatedly merge the sub lists to produce sorted sublist until one remains
+
+    Return sorted Linked list
+    """
+
+    if linked_list.size() == 1:
+        return linked_list
+    elif linked_list.head is None:
+        return linked_list
+
+
+    left_half, right_half = split_linked(linked_list)
+    left = linked_list_merge_sort(left_half)
+    right = linked_list_merge_sort(right_half)
+
+    return merge_linked_sort(left,right)
+
+def split_linked(linked_list):
+    if linked_list == None or linked_list.head == None:
+        left_half = linked_list
+        right_half = None
+        return left_half,right_half
+    else:
+        size = linked_list.size()
+        mid = size // 2
+
+        mid_node = linked_list.index_at(mid-1)
+
+        left_half = linked_list
+        right_half = Linked_list()
+        right_half.head = mid_node.next_node
+        mid_node.next_node = None
+
+        return left_half, right_half
+
+
+
+def merge_linked_sort(left,right):
+    """
+    Merges two linked lists, sorting by data in nodes
+    """
+    pass
+    
