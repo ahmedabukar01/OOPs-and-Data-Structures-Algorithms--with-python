@@ -326,3 +326,29 @@ def merge_linked_sort(left,right):
             merged.head = head
 
             return merged
+        
+
+l = Linked_list()
+l.add(20)
+l.add(40)
+l.add(3)
+l.add(1)
+l.add(400)
+print(linked_list_merge_sort(l))
+
+
+
+# Bogo sort
+import random
+# import sys
+
+def is_sorted(values):
+    for index in range(len(values) -1):
+        if values[index] > values[index] +1:
+            return False
+    return True
+
+def bogo_sort(values):
+    while not is_sorted(values):
+        random.shuffle(values)
+    return values
