@@ -342,13 +342,20 @@ print(linked_list_merge_sort(l))
 import random
 # import sys
 
-def is_sorted(values):
-    for index in range(len(values) -1):
-        if values[index] > values[index] +1:
+bogo_value = [99,3,5,2,1,77,4]
+def is_sorted(bogo_value):
+    for index in range(len(bogo_value) -1):
+        if bogo_value[index] > bogo_value[index + 1]:
             return False
     return True
 
-def bogo_sort(values):
-    while not is_sorted(values):
-        random.shuffle(values)
-    return values
+def bogo_sort(bogo_value):
+    attempts = 0
+    while not is_sorted(bogo_value):
+        print("attempts", attempts)
+        random.shuffle(bogo_value)
+        attempts +=1
+    return bogo_value
+
+b_res = bogo_sort(bogo_value)
+print(b_res)
