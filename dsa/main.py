@@ -337,10 +337,11 @@ l.add(400)
 print(linked_list_merge_sort(l))
 
 
+#----------------------------------------------------------------------------------------------
 
 # Bogo sort
 import random
-# import sys
+import sys
 
 bogo_value = [99,3,5,2,1,77,4]
 def is_sorted(bogo_value):
@@ -359,3 +360,24 @@ def bogo_sort(bogo_value):
 
 b_res = bogo_sort(bogo_value)
 print(b_res)
+
+
+# Selection Sort
+
+s_values = [88,7,44,3,2,1]
+def selection_sort(values):
+    sorted_list = []
+    for index in range(0, len(values)):
+        index_to_move = min_value(values)
+        sorted_list.append(values.pop(index_to_move))
+        print("%-25s %-25s", values, sorted_list)
+    return sorted_list
+
+def min_value(values):
+    min_index = 0
+    for i in range(1, len(values)):
+        if values[i] < values[min_index]:
+            min_index = i
+    return min_index
+
+print(selection_sort(s_values))
