@@ -381,3 +381,13 @@ def min_value(values):
     return min_index
 
 print(selection_sort(s_values))
+
+# recursion
+def sum(numbers):
+    if not numbers:
+        return 0
+    print("calling %s", numbers[1:])
+    remainingSum = sum(numbers[1:])
+    print(f" {remainingSum} this is numbers: {numbers} ")
+    return numbers[0] + remainingSum
+print(sum([3,65,6,4,2]))
