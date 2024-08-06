@@ -408,3 +408,5 @@ def quicksort(values):
     return quicksort(less_than_pivot) + [pivot] + quicksort(greater_than_pivot)
 sorted_values = quicksort([89,3,5,34,90,2])
 print(sorted_values)
+
+# // is caled the floor division operator
