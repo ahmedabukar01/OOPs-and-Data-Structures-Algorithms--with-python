@@ -409,4 +409,27 @@ def quicksort(values):
 sorted_values = quicksort([89,3,5,34,90,2])
 print(sorted_values)
 
-# // is caled the floor division operator
+# merge sort
+def merge_sort_2(values):
+    if len(values) <= 1:
+        return values
+    middle_index = len(values) // 2 # // is caled the floor division operator
+    left_values = merge_sort_2(values[:middle_index])
+    right_values = merge_sort_2(values[middle_index:])
+    sorted_values = []
+    left_index = 0
+    right_index = 0
+    while left_index < len(left_values) and right_index < len(right_values):
+        if left_values[left_index] < right_values[right_index]:
+            sorted_values.append(left_values[left_index])
+            left_index += 1
+        else:
+            sorted_values.append(right_values[right_index])
+            right_index += 1
+    sorted_values += left_values[left_index:]
+    sorted_values += right_values[right_index:]
+    return sorted_values
+    
+
+merge_sort_result = merge_sort_2([87,6,54,3,2,7,5,1])
+print("latest", merge_sort_result)
