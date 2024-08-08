@@ -433,3 +433,37 @@ def merge_sort_2(values):
 
 merge_sort_result = merge_sort_2([87,6,54,3,2,7,5,1])
 print("latest", merge_sort_result)
+
+# Search algorithm ----------------------------------------------------------
+
+
+search_names = ['zamzam','ali', 'abdi', 'asha', 'farxiyo', 'ruweydo', 'hassan']
+
+def index_of_item(collection, target):
+    for i in range(0, len(collection)):
+        if target == collection[i]:
+            return i
+    return None
+
+sorted_names = quicksort(search_names)
+print(sorted_names)
+
+
+# Binary Search.
+
+def binary_search(collection, target):
+    first = 0
+    last = len(collection) -1
+    while first <= last:
+        midpoint = (first + last) // 2
+        if collection[midpoint] == target:
+            return midpoint
+        elif collection[midpoint] < target:
+            first = midpoint + 1
+        else:
+            last = midpoint -1
+    return None
+
+
+binName = binary_search(sorted_names, "ruweydo")
+print(binName)
